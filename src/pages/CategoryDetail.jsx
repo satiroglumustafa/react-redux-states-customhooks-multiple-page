@@ -32,7 +32,7 @@ const CategoryDetail = () => {
         <p>{matchedItem.description}</p>
         <div className="d-flex align-items-center justify-content-center gap-2">
           <Badge bg={themeMode ? "warning" : "secondary"}><strong>Fiyat:</strong> {matchedItem.price} TL</Badge>
-          <Badge bg={themeMode ? "warning" : "secondary"}><strong>Puanı:</strong> {matchedItem.rating.rate} TL</Badge>
+          <Badge bg={themeMode ? "warning" : "secondary"}><strong>Puanı:</strong> {matchedItem.rating.rate}</Badge>
         </div>
       </div>
     </Col>
