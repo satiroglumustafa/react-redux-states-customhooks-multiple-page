@@ -1,0 +1,20 @@
+.category-detail {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.category-detail img {
+    display: table;
+    margin: auto;
+    border: 4px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+ 
+.dark .category-detail {
+    color: #fff;
+}

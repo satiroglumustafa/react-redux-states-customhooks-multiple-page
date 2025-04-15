@@ -1,0 +1,29 @@
+.card-area .card-img-top {
+    height: 200px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.card-area .card-title,.card-area .card-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    min-height: 48px;
+}
+ 
+.card-area.card {
+    box-shadow: 1px 1px 10px #979797;
+}
+.dark .card-area {
+    background: #000000;
+}
+
+.dark .card-area .card-title,.dark .card-area .card-text {
+    color: #fff;
+}
+
+.dark .card-area .card-img-top {
+    width: 100%;
+    background: #fff;
+}

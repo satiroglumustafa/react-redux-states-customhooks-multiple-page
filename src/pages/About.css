@@ -1,0 +1,15 @@
+.about-area {
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 300;
+    color: #000;
+}
+
+.sub-title {
+    font-weight: bold;
+    color: #b78a00;
+}
+
+.dark .about-area {
+    color: #fff;
+}
