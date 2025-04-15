@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 1000px;
     margin: auto;
     box-shadow: 1px 1px 10px #000;
     overflow: hidden;

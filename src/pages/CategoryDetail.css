@@ -2,6 +2,9 @@
     max-width: 900px;
     margin: auto;
     text-align: center;
+    box-shadow: 1px 1px 10px #000;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .category-detail img {
@@ -17,4 +20,5 @@
  
 .dark .category-detail {
     color: #fff;
+    background: #8e6900;
 }

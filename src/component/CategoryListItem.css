@@ -4,12 +4,13 @@
     object-position: center;
 }
 
-.card-area .card-title,.card-area .card-text {
+.card-area .card-title a,.card-area .card-text a {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
     min-height: 48px;
+    color: #000;
 }
  
 .card-area.card {
@@ -19,7 +20,7 @@
     background: #000000;
 }
 
-.dark .card-area .card-title,.dark .card-area .card-text {
+.dark .card-area .card-title a,.dark .card-area .card-text a {
     color: #fff;
 }
 

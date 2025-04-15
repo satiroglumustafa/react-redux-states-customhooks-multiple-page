@@ -1,0 +1,28 @@
+.top-scorers-area .card-img-top {
+    height: 200px;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    background: #fff;
+}
+
+.top-scorers-area .card-text a,.top-scorers-area .card-title a {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    min-height: 48px;
+}
+.point {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.dark .top-scorers-area .card {
+    background: #2b2b2b;
+    box-shadow: 1px 1px 10px #ac8b2d;
+}
+.dark .top-scorers-area .card-text a,.dark .top-scorers-area .card-title a {
+    color: #fff;
+}

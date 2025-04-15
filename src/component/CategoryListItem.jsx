@@ -7,12 +7,17 @@ const CategoryListItem = (props) => {
     <>
       <Col xs={12} md={6} lg={3} className="mb-4">
         <Card  className="card-area">
-          <Card.Img variant="top" src={props.image} />
+          <Link to={`/category/${slugify(props.category)}/${slugify(props.title)}`}>
+            <Card.Img variant="top" src={props.image} />
+          </Link>
           <Card.Body>
-            <Card.Title>{props.title}</Card.Title>
-            <Card.Text>{props.description}</Card.Text>
-            <Link to={`/category/${slugify(props.category)}/${slugify(props.title)}`}
-  className="slide-detail-btn" prefetch="intent">Detay</Link>
+            <Card.Title>
+              <Link to={`/category/${slugify(props.category)}/${slugify(props.title)}`}> {props.title}</Link>
+            </Card.Title>
+            <Card.Text>
+              <Link to={`/category/${slugify(props.category)}/${slugify(props.title)}`}>{props.description}</Link>
+            </Card.Text>
+            <Link to={`/category/${slugify(props.category)}/${slugify(props.title)}`}className="slide-detail-btn" prefetch="intent">Detay</Link>
           </Card.Body>
         </Card>
       </Col>

@@ -1,49 +1,64 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Form,
+  Nav,
+  Navbar,
+  Row,
+} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../store/themeModeSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
 const Header = () => {
+  const themeModeParam = useSelector((state) => state.themeMode.isDark);
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const [expanded, setExpanded] = useState(false); // navbar toggle state
 
-  const  themeModeParam = useSelector((state)=>state.themeMode.isDark)
-  const dispatch = useDispatch()
+  const handleToggleTheme = () => {
+    dispatch(toggleTheme());
+  };
 
-  const handleToggleTheme = ()=>{
-    dispatch(toggleTheme())
-  }
+  // Sayfa geçişinde menüyü kapat
+  useEffect(() => {
+    setExpanded(false);
+  }, [location]);
 
-  useEffect(()=>{
+  useEffect(() => {
     if (themeModeParam) {
-        document.body.classList.add('dark')
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
     }
-    else{
-        document.body.classList.remove('dark')
-    }
-  },[themeModeParam])
+  }, [themeModeParam]);
 
   return (
-    <div  className="header">
+    <div className="header">
       <Container>
         <Row>
           <Col xs={12}>
             <div className="d-flex align-items-center justify-content-center position-relative">
-              <ul className="d-flex align-items-center">
-                <li>
-                  <Link to="/">Anasayfa</Link>
-                </li>
-                <li>
-                  <Link to="/hakkimizda">Hakkımızda</Link>
-                </li>
-                <li>
-                  <Link to="/kategori">Kategori</Link>
-                </li>
-              </ul>
+              <Navbar expand="lg" expanded={expanded}>
+                <Navbar.Toggle
+                  aria-controls="basic-navbar-nav"
+                  onClick={() => setExpanded(!expanded)}
+                />
+                <Navbar.Collapse id="basic-navbar-nav">
+                  <Nav className="me-auto gap-3">
+                    <Link to="/" onClick={() => setExpanded(false)}>Anasayfa</Link>
+                    <Link to="/hakkimizda" onClick={() => setExpanded(false)}>Hakkımızda</Link>
+                    <Link to="/kategori" onClick={() => setExpanded(false)}>Kategori</Link>
+                  </Nav>
+                </Navbar.Collapse>
+              </Navbar>
               <Form className="themeMode">
-                <Form.Check // prettier-ignore
+                <Form.Check
                   type="switch"
                   id="custom-switch"
-                  label={`${themeModeParam ? "Dark "  : " Light" }  `}
+                  label={`${themeModeParam ? "Dark " : " Light"}  `}
                   onClick={handleToggleTheme}
                 />
               </Form>
