@@ -11,5 +11,6 @@
     font-size: 13px;
     padding: 10px 10px;
     text-align: center;
+    z-index: 9;
 }
 .dark .footer{color: #000;}
