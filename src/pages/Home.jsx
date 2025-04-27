@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Badge, Card, Spinner } from "react-bootstrap";
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import ApiContext from "../contexts/ApiContext";
 import "./MainSlide.css";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -11,13 +11,17 @@ import { slugify } from "../utils/utils";
 import './TopScorersSlide.css'
 const Home = () => {
   const { categoryList, loading } = useContext(ApiContext);
-  const filteredForCategory = categoryList.filter(
-    (item) => item.category === "jewelery"
-  );
+  const filteredForCategory = useMemo(()=>{
+    return categoryList.filter(
+      (item) => item.category === "jewelery"
+    );
+  },[categoryList])
 
-  const filteredTopScorers = categoryList.filter(
+  const filteredTopScorers = useMemo(()=>{
+   return  categoryList.filter(
     (item) => item.rating && item.rating.rate > 4
   );
+  },[categoryList])
 
   if (loading) {
     return (
